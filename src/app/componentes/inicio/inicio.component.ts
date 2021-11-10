@@ -11,29 +11,31 @@ export class InicioComponent implements OnInit {
   
   mostrarFormulario:boolean = false;
   form:FormGroup;
-  formulario:boolean = false;
 
-  constructor(private formbuilder:FormBuilder) {
-      this.form = this.formbuilder.group({
-      nombre:['',[Validators.required]],
-      estado:['',[Validators.required]],
+  constructor(public Form:FormBuilder) {
+      this.form = Form.group({
+      "nombre":['',Validators.required],
+      "estado":['',Validators.required],
       }) 
-}
+  }
 
   ngOnInit(): void {
   }
 
   enviarDatos(){
     this.mostrarFormulario = true;
-    console.log(this.form.value);
+    //console.log(this.form.value);
+
     let nombre:any = document.getElementById("nombre");
-    let seleccion:any = document.getElementById("");
+    let seleccion:any = document.getElementById("estado");
 
     let nuevaTarea:Tarea = {
-      id : ListaTarea.length,
+      id : (ListaTarea.length + 1),
       titulo : nombre.value,
       idEstado : seleccion.value
     }
+
+    console.log(nuevaTarea);
 
     ListaTarea.push(nuevaTarea)
   }

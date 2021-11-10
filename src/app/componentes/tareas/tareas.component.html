@@ -1,10 +1,55 @@
+<!-- 
 <div class="container mx-auto text-center">
-    <label *ngFor="let tarea of ListaTareas">
-        <label *ngIf="tarea.idEstado== 1">{{tarea.titulo}}
-            <label class="bi bi-circle" > Iniciado </label>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                </svg>
+    <label class="container iniciado" *ngFor="let tarea of ListaTareas">
+        <label *ngIf="tarea.idEstado== 1">
+            {{tarea.titulo}}
+            <label class="bi bi-circle-fill" ></label>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(95, 194, 100)" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8"/>
+            </svg>
         </label>
     </label>
+
+    <label class="container seccion" *ngFor="let tarea of ListaTareas">
+        <label *ngIf="tarea.idEstado == 2">{{tarea.titulo}}
+            <label class="bi bi-circle-fill" ></label>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(202, 195, 89)" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8"/>
+            </svg>
+        </label>
+    </label>
+
+    <label class="container seccion" *ngFor="let tarea of ListaTareas">
+        <label *ngIf="tarea.idEstado == 3">{{tarea.titulo}}
+            <label class="bi bi-circle-fill" ></label>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8"/>
+            </svg>
+        </label>
+    </label>
+</div>
+-->
+
+<div class="container">
+    <ul>
+        <li *ngFor="let iniciada of iniciadas">
+            <div id="iniciadas">
+                <p>{{iniciada.titulo}}</p>
+            </div>
+        </li>
+    </ul>
+    <ul>
+        <li *ngFor="let proceso of enProceso">
+            <div id="enProceso">
+                <p>{{proceso.titulo}}</p>
+            </div>
+        </li>
+    </ul>
+    <ul>
+        <li *ngFor="let terminada of terminadas">
+            <div id="terminadas">
+                <p>{{terminada.titulo}}</p>
+            </div>
+        </li>
+    </ul>
 </div>

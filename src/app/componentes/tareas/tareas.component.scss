@@ -1,0 +1,21 @@
+.container{
+    display: inline-block;
+    width: 30%;
+}
+
+.li{
+    text-align: left;
+    margin: 3%;
+}
+
+#iniciadas{
+    background-color: red;
+}
+
+#enProceso{
+    background-color: rgb(202, 195, 89);
+}
+
+#terminadas{
+    background-color: rgb(95, 194, 100);
+}

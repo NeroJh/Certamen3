@@ -1,22 +1,21 @@
 <div class="container mt-3">
 
-    <form class="formulario" [formGroup]="form" method="post" action="#"> 
+    <form [formGroup]="form" (ngSubmit)="enviarDatos()" method="post" action="#" novalidate>
       <div class="col-md-4">
 
         <label for="nombre" class="form-label"> Titulo </label>
-        <input type="text"  id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre de la tarea"
-            [ngClass]="{ 'is-invalid': form.controls['nombre'].invalid && (form.controls['nombre'].dirty || form.controls['nombre'].touched),
-            'is-valid': form.controls['nombre'].valid && (form.controls['nombre'].dirty || form.controls['nombre'].touched)}">
-
+        <input type="text"  id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre de la tarea">
+        <!-- [ngClass]="{ 'is-invalid': form.controls['nombre'].invalid && (form.controls['nombre'].dirty || form.controls['nombre'].touched),
+            'is-valid': form.controls['nombre'].valid && (form.controls['nombre'].dirty || form.controls['nombre'].touched)}" -->
         <div *ngIf="form.controls['nombre'].invalid && (form.controls['nombre'].dirty || form.controls['nombre'].touched)" class="invalid-feedback">
             <div *ngIf="form.controls['nombre'].hasError('required')"> El titulo no acepta esos caracteres </div> 
         </div>    
 
         <label for="estado">Estado</label>
-            <select class="form-select" id="estado" formControlName="estado" 
-              [ngClass]="{'is-invalid': form.controls['estado'].invalid && (form.controls['estado'].dirty || form.controls['estado'].touched)
-              , 'is-valid': form.controls['estado'].valid && (form.controls['estado'].dirty || form.controls['estado'].touched)}">
-              <option value=""> Select </option>
+            <select class="form-select" id="estado" formControlName="estado" >
+              <!-- [ngClass]="{'is-invalid': form.controls['estado'].invalid && (form.controls['estado'].dirty || form.controls['estado'].touched)
+              , 'is-valid': form.controls['estado'].valid && (form.controls['estado'].dirty || form.controls['estado'].touched)}" -->
+              <option value="0"> Select </option>
               <option value="contenidos"> Iniciado </option>
               <option value="publicidad"> En proceso </option>
               <option value="sugerencias"> Terminado </option>
@@ -30,7 +29,7 @@
             <div class="container">
               <div class="row text-center">
                   <div class="col text-center">
-                    <button  type="submit" [routerLink]="['/tareas']" routerLinkActive="router-link-active" [disabled]="!form.valid" class="">Crear</button>
+                    <button type="submit" [routerLink]="['/tareas']" routerLinkActive="router-link-active" [disabled]="!form.valid">Crear</button>
                   </div>
 
                   <div class="col text-center">
